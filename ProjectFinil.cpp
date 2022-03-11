@@ -34,6 +34,28 @@ void drawBoard()
 }
 
 
+
+bool placeMarker(int slot)
+{
+	
+	for (int i=0;i<9;i++){
+	int row= slot / 3;
+		int col;
+	if(slot%3==0) {
+			row = row -1;
+			col= 2;
+	}
+
+	else col = (slot%3)-1;
+		if(board[row][col] != 'x' && board[row][col] != 'o') {
+		board[row][col]= current_marker;
+		return true;
+		}
+		else return false;
+		
+	}
+}
+
 int main()
 {
 
