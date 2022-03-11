@@ -3,6 +3,8 @@
 //*******************************
 #include <iostream>
 using namespace std;
+char current_marker;
+int current_player;
 char board[3][3];
 
 
@@ -71,7 +73,8 @@ void swap_player_and_marker()
 }
 
 
-char winner(){
+char winner()
+{
 	for(int i=0; i<3;i++){
 		// rows
 		if(board[i][0] == board[i][1] && board[i][1] == board[i][2]) return board[i][0];
@@ -85,11 +88,60 @@ char winner(){
 	
 	return 0;
 }
+void game()
+{
+
+	 board[3][3]={0};
+	cout<<"Player one, choose your marker(=> X or O <=): ";
+	char marker_p1;
+	cin>>marker_p1;
 	
+		showInstructions() ;
+	
+	current_player=1;
+	current_marker= marker_p1;
+	cout<<"=== ==== ==========>>     choose 1 - 9\t<<========== ==== ===\n\n\n";
+	int player_won=0;
+	
+
+	for(int i=1 ;i<9; i++){
+		cout<<"player "<< current_player<<", enter a number: ";
+			int slot;
+				if(!scanf("%d",&slot)){
+					scanf("%*s");
+						continue;
+							i--;
+		}
+
+	if(slot< 0 || slot > 10){
+	 i--;
+	 continue;
+	}		
+	if(	!placeMarker(slot))
+	{		
+	 cout<<"That cell occupied! Try Enter your slot :\n\n"; 
+	 i--;
+	 continue;	 
+	}
+			drawBoard();
+				
+		if(player_won = winner()){ cout<<" Congratulations! Player " <<current_player <<" won!\n\n" ; break;}
+		
+		swap_player_and_marker();
+	
+	}
+	if(player_won == 0){
+		cout<<" game Over !\n\n";
+    } 
+	
+
+		cout<<" You have been out of the Game !\n";
+
+}
 
 int main()
 {
-
+	game();
 	return 0;
 	
 }
