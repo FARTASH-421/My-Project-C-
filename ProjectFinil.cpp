@@ -56,6 +56,21 @@ bool placeMarker(int slot)
 	}
 }
 
+void swap_player_and_marker()
+{
+	
+	if(current_marker == 'x'){
+		current_marker= 'o';
+	} 
+	else current_marker = 'x';
+	
+	if(current_player== 1){
+		current_player =2;
+	} 
+	else current_player= 1;
+}
+	
+
 int main()
 {
 
