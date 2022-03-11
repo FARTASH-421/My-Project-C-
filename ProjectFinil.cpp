@@ -87,10 +87,12 @@ char winner()
 	if(board[0][2]== board[1][1] && board[1][1]== board[2][0]) return board[0][2];
 	
 	return 0;
-}
-void game()
-{
-
+}	
+void game(){
+	
+	char answer;
+	do{
+	 
 	 board[3][3]={0};
 	cout<<"Player one, choose your marker(=> X or O <=): ";
 	char marker_p1;
@@ -130,11 +132,17 @@ void game()
 		swap_player_and_marker();
 	
 	}
-	if(player_won == 0){
-		cout<<" game Over !\n\n";
-    } 
+	if(player_won == 0){cout<<" game Over !\n\n"; } 
 	
-
+	for(int i=0; i<3;i++){
+	for(int j=0;j<3;j++){	
+	board[i][j]={0}; 
+	}
+	}
+		cout<<"Do you want again play ( Y or N )? : ";
+		cin>> answer;
+		cout<<endl<<endl;		
+		}while(answer=='y');
 		cout<<" You have been out of the Game !\n";
 
 }
