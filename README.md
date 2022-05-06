@@ -1,7 +1,6 @@
-# My-Project-C++
 # TIC-TAC-TOE-GAME
 
-Project
+EE-551 Python Project
 
 ### OBJECTIVE:
 This project for EE-551 aims to develop a Tic Tac Toe game using python. It mainly consists of developing and implementing a computer program that plays Tic Tac Toe against another player.<br/>
